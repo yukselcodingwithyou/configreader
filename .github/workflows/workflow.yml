@@ -24,14 +24,3 @@ jobs:
           tag_name="v0.0.$GITHUB_RUN_NUMBER"
           git tag -a $tag_name -m "${{ github.event.head_commit.message }}"
           git push origin $tag_name
-
-      - name: Generate Docs
-        uses: ktr0731/godoc-action@v0.1.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
