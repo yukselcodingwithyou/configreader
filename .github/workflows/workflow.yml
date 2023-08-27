@@ -1,4 +1,4 @@
-name: Create Tag on Changed Modules
+name: Create Tag
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
   pull_request:
     types:
       - closed
-
 jobs:
   tag:
     runs-on: ubuntu-latest
