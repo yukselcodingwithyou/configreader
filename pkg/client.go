@@ -2,6 +2,7 @@ package pkg
 
 import (
 	"github.com/yukselcodingwithyou/configreader/internal"
+	"log"
 	"os"
 )
 
@@ -79,6 +80,7 @@ func (c configReader) Read(v interface{}) error {
 // configVariableName: env variable of config (can be file path or http server address)
 func NewConfigReader(from From, contentType ContentType, configVariableName string) ConfigReader {
 	path := os.Getenv(configVariableName)
+	log.Println("CONFIG_LOCATION: ", path)
 	injector := internal.NewConfigInjector(from.str())
 	unmarshaler := internal.NewUnmarshaler(contentType.str())
 	if from == LOCAL {
